@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,14 +24,14 @@ public class SanPhamController {
     public String viewSanPhamList(Model m) {
         List<SanPham> list = dao.getAllSanPham();
         m.addAttribute("list", list);
-        return "sanpham/list"; // Trả về view sanpham/list.jsp
+        return "SanPham/list";
     }
 
     // Form thêm sản phẩm
     @RequestMapping("/SanPham/add")
     public String showAddForm(Model m) {
         m.addAttribute("command", new SanPham());
-        return "sanpham/add"; // Trả về view sanpham/add.jsp
+        return "SanPham/add"; // Trả về view sanpham/add.jsp
     }
 
     // Lưu sản phẩm mới
@@ -47,7 +46,7 @@ public class SanPhamController {
     public String edit(@PathVariable int id, Model m) {
         SanPham sp = dao.getSanPhamById(id);
         m.addAttribute("command", sp);
-        return "sanpham/edit"; // Trả về view sanpham/edit.jsp
+        return "SanPham/edit"; // Trả về view sanpham/edit.jsp
     }
 
     // Lưu chỉnh sửa

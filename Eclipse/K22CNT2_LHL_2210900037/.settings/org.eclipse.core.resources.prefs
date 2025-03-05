@@ -2,3 +2,7 @@ eclipse.preferences.version=1
 encoding//src/main/webapp/WEB-INF/views/SanPham/add.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/SanPham/edit.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/SanPham/list.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/khachhang/add.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/khachhang/edit.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/khachhang/list.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/menu.jsp=UTF-8

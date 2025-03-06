@@ -15,52 +15,53 @@ import com.springmvc.dao.KhachHangDao;
 
 @Controller
 public class KhachHangController {
-
+	
     @Autowired
     KhachHangDao dao;
+   
+    
 
     // Hiển thị danh sách khách hàng
-    @RequestMapping("/khachhang/list")
+    @RequestMapping("/KhachHang/list")
     public String viewKhachHangList(Model m) {
         List<KhachHang> list = dao.getAllKhachHang();
-        m.addAttribute("list", list);
-        return "khachhang/list"; 
+        m.addAttribute("listkh", list);  // Sửa lại tên attribute trong Model cho đúng với JSP
+        return "KhachHang/list";  // Trả về view khachhang/list.jsp
     }
 
     // Form thêm khách hàng
-    @RequestMapping("/khachhang/add")
+    @RequestMapping("/KhachHang/add")
     public String showAddForm(Model m) {
-        m.addAttribute("kh", new KhachHang());
-        return "khachhang/add"; 
+        m.addAttribute("command", new KhachHang());
+        return "KhachHang/add";  // Trả về view khachhang/add.jsp
     }
 
     // Lưu khách hàng mới
-    @RequestMapping(value = "/khachhang/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/KhachHang/save", method = RequestMethod.POST)
     public String save(@ModelAttribute("kh") KhachHang kh) {
         dao.save(kh);
-        return "redirect:/khachhang/list"; // Redirect đến danh sách khách hàng
+        return "redirect:/KhachHang/list";  // Redirect đến danh sách khách hàng
     }
 
     // Form chỉnh sửa khách hàng
-    @RequestMapping("/khachhang/edit/{id}")
+    @RequestMapping("/KhachHang/edit/{id}")
     public String edit(@PathVariable int id, Model m) {
         KhachHang kh = dao.getKhachHangById(id);
         m.addAttribute("command", kh);
-        return "khachhang/edit"; // Trả về view khachhang/edit.jsp
+        return "KhachHang/edit";  // Trả về view khachhang/edit.jsp
     }
 
     // Lưu chỉnh sửa khách hàng
-    @RequestMapping(value = "/khachhang/editsave", method = RequestMethod.POST)
+    @RequestMapping(value = "/KhachHang/editsave", method = RequestMethod.POST)
     public String editsave(@ModelAttribute("kh") KhachHang kh) {
         dao.update(kh);
-        return "redirect:/khachhang/list"; // Redirect đến danh sách khách hàng
+        return "redirect:/KhachHang/list";  // Redirect đến danh sách khách hàng
     }
 
     // Xóa khách hàng
-    @RequestMapping("/khachhang/delete/{id}")
+    @RequestMapping("/KhachHang/delete/{id}")
     public String delete(@PathVariable int id) {
         dao.delete(id);
-        return "redirect:/khachhang/list"; // Redirect đến danh sách khách hàng
+        return "redirect:/KhachHang/list";  // Redirect đến danh sách khách hàng
     }
-
 }

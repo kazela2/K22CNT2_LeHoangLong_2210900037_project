@@ -29,9 +29,8 @@
 	    <ul>
 	        <li><a href="${pageContext.request.contextPath}/">Trang Chu</a></li>
 	        <li><a href="${pageContext.request.contextPath}/SanPham/list">Quan Ly San Pham</a></li>
-	        <li><a href="${pageContext.request.contextPath}/khachhang/list">Quan Ly Khach Hang</a></li>
+	        <li><a href="${pageContext.request.contextPath}/KhachHang/list">Quan Ly Khach Hang</a></li>
 	        <li><a href="${pageContext.request.contextPath}/">Don Hang</a></li>
-	        <li><a href="${pageContext.request.contextPath}/">Chi Tiet Don Hang</a></li>
 	        <li><a href="${pageContext.request.contextPath}/">Gio Hang</a></li>
 	    </ul>
 	</body>

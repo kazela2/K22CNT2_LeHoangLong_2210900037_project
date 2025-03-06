@@ -65,7 +65,7 @@
         <a href="menu">Đến Menu Chức Năng</a>
     </div>
     <div class="footer">
-        <p>&copy; 2025 Trang Web của Bạn. Được phát triển với tình yêu!</p>
+        <p>&copy; 2025 Trang Web của Bạn.</p>
     </div>
 </body>
 </html>

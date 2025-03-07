@@ -10,19 +10,19 @@
 	import org.springframework.web.bind.annotation.RequestMapping;
 	import org.springframework.web.bind.annotation.RequestMethod;
 	
-	import com.springmvc.beans.SanPham;
-	import com.springmvc.dao.SanPhamDao;
+	import com.springmvc.beans.LHLSanPham;
+	import com.springmvc.dao.LHLSanPhamDao;
 	
 	@Controller
-	public class SanPhamController {
+	public class LHLSanPhamController {
 	
 	    @Autowired
-	    SanPhamDao dao;
+	    LHLSanPhamDao dao;
 	
 	    // Hiển thị danh sách sản phẩm (đã sửa URL)
 	    @RequestMapping("/SanPham/list")
 	    public String viewSanPhamList(Model m) {
-	        List<SanPham> list = dao.getAllSanPham();
+	        List<LHLSanPham> list = dao.getAllSanPham();
 	        m.addAttribute("list", list);
 	        return "SanPham/list";
 	    }
@@ -30,13 +30,13 @@
 	    // Form thêm sản phẩm
 	    @RequestMapping("/SanPham/add")
 	    public String showAddForm(Model m) {
-	        m.addAttribute("command", new SanPham());
+	        m.addAttribute("command", new LHLSanPham());
 	        return "SanPham/add"; // Trả về view sanpham/add.jsp
 	    }
 	
 	    // Lưu sản phẩm mới
 	    @RequestMapping(value = "/SanPham/save", method = RequestMethod.POST)
-	    public String save(@ModelAttribute("pb") SanPham sp) {
+	    public String save(@ModelAttribute("pb") LHLSanPham sp) {
 	        dao.save(sp);
 	        return "redirect:/SanPham/list"; // Redirect đến danh sách sản phẩm
 	    }
@@ -44,14 +44,14 @@
 	    // Form chỉnh sửa sản phẩm
 	    @RequestMapping("/SanPham/edit/{id}")
 	    public String edit(@PathVariable int id, Model m) {
-	        SanPham sp = dao.getSanPhamById(id);
+	        LHLSanPham sp = dao.getSanPhamById(id);
 	        m.addAttribute("command", sp);
 	        return "SanPham/edit"; // Trả về view sanpham/edit.jsp
 	    }
 	
 	    // Lưu chỉnh sửa
 	    @RequestMapping(value = "/SanPham/editsave", method = RequestMethod.POST)
-	    public String editsave(@ModelAttribute("pb") SanPham sp) {
+	    public String editsave(@ModelAttribute("pb") LHLSanPham sp) {
 	        dao.update(sp);
 	        return "redirect:/SanPham/list"; // Redirect đến danh sách sản phẩm
 	    }

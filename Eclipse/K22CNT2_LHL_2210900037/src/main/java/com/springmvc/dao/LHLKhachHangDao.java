@@ -8,9 +8,9 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.springmvc.beans.KhachHang;
+import com.springmvc.beans.LHLKhachHang;
 
-public class KhachHangDao {
+public class LHLKhachHangDao {
 
     private JdbcTemplate template;
 
@@ -20,14 +20,14 @@ public class KhachHangDao {
     }
 
     // Thêm khách hàng
-    public int save(KhachHang kh) {
+    public int save(LHLKhachHang kh) {
         System.out.println("Saving KhachHang: " + kh);  // In ra thông tin khách hàng
         String sql = "INSERT INTO lhl_khachhang (lhl_hoten, lhl_email, lhl_sodienthoai) VALUES (?, ?, ?)";
         return template.update(sql, kh.getLhl_hoten(), kh.getLhl_email(), kh.getLhl_sodienthoai());
     }
 
     // Cập nhật khách hàng
-    public int update(KhachHang kh) {
+    public int update(LHLKhachHang kh) {
         String sql = "UPDATE lhl_khachhang SET "
                 + "lhl_hoten = ?, "
                 + "lhl_email = ?, "
@@ -44,10 +44,10 @@ public class KhachHangDao {
     }
 
     // Lấy danh sách khách hàng
-    public List<KhachHang> getAllKhachHang() {
-        return template.query("SELECT * FROM lhl_khachhang", new RowMapper<KhachHang>() {
-            public KhachHang mapRow(ResultSet rs, int rowNum) throws SQLException {
-                KhachHang kh = new KhachHang();
+    public List<LHLKhachHang> getAllKhachHang() {
+        return template.query("SELECT * FROM lhl_khachhang", new RowMapper<LHLKhachHang>() {
+            public LHLKhachHang mapRow(ResultSet rs, int rowNum) throws SQLException {
+                LHLKhachHang kh = new LHLKhachHang();
                 kh.setLhl_makh(rs.getInt("lhl_makh"));
                 kh.setLhl_hoten(rs.getString("lhl_hoten"));
                 kh.setLhl_email(rs.getString("lhl_email"));
@@ -58,8 +58,8 @@ public class KhachHangDao {
     }
 
     // Lấy khách hàng theo ID
-    public KhachHang getKhachHangById(int id) {
+    public LHLKhachHang getKhachHangById(int id) {
         String sql = "SELECT * FROM lhl_khachhang WHERE lhl_makh=?";
-        return template.queryForObject(sql, new Object[] { id }, new BeanPropertyRowMapper<>(KhachHang.class));
+        return template.queryForObject(sql, new Object[] { id }, new BeanPropertyRowMapper<>(LHLKhachHang.class));
     }
 }

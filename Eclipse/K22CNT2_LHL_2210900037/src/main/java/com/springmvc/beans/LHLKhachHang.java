@@ -1,6 +1,6 @@
 package com.springmvc.beans;
 
-public class KhachHang {
+public class LHLKhachHang {
     private int lhl_makh;
     private String lhl_hoten;
     private String lhl_email;
@@ -8,7 +8,7 @@ public class KhachHang {
     private String lhl_matkhau;
     
     
-	public KhachHang(int lhl_makh, String lhl_hoten, String lhl_email, String lhl_sodienthoai) {
+	public LHLKhachHang(int lhl_makh, String lhl_hoten, String lhl_email, String lhl_sodienthoai) {
 		super();
 		this.lhl_makh = lhl_makh;
 		this.lhl_hoten = lhl_hoten;
@@ -16,7 +16,7 @@ public class KhachHang {
 		this.lhl_sodienthoai = lhl_sodienthoai;
 	}
 	
-	public KhachHang() {
+	public LHLKhachHang() {
 		super();
 	}
 

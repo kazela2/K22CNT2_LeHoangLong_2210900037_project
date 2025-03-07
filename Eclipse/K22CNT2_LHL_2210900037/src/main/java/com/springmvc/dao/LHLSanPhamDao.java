@@ -8,9 +8,9 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.springmvc.beans.SanPham;
+import com.springmvc.beans.LHLSanPham;
 
-public class SanPhamDao {
+public class LHLSanPhamDao {
 	private JdbcTemplate template;
 
     public void setTemplate(JdbcTemplate template) {
@@ -18,13 +18,13 @@ public class SanPhamDao {
     }
 
     // Thêm sản phẩm
-    public int save(SanPham sp) {
+    public int save(LHLSanPham sp) {
     	String sql = "INSERT INTO lhl_sanpham (lhl_tensp, lhl_danhmuc, lhl_mota, lhl_gia) VALUES (?, ?, ?, ?)";
 	    return template.update(sql, sp.getLhl_tensp(), sp.getLhl_danhmuc(), sp.getLhl_mota(), sp.getLhl_gia());
     }
 
     // Cập nhật sản phẩm
-    public int update(SanPham sp) {
+    public int update(LHLSanPham sp) {
     	String sql = "UPDATE lhl_sanpham SET "
 		        + "lhl_tensp = ?, "
 		        + "lhl_danhmuc = ?, "
@@ -42,10 +42,10 @@ public class SanPhamDao {
     }
 
     // Lấy danh sách sản phẩm
-    public List<SanPham> getAllSanPham() {
-        return template.query("SELECT * FROM lhl_sanpham", new RowMapper<SanPham>() {
-            public SanPham mapRow(ResultSet rs, int rowNum) throws SQLException {
-            	SanPham sp = new SanPham();
+    public List<LHLSanPham> getAllSanPham() {
+        return template.query("SELECT * FROM lhl_sanpham", new RowMapper<LHLSanPham>() {
+            public LHLSanPham mapRow(ResultSet rs, int rowNum) throws SQLException {
+            	LHLSanPham sp = new LHLSanPham();
 	            sp.setLhl_masp(rs.getInt("lhl_masp")); 
 	            sp.setLhl_tensp(rs.getString("lhl_tensp"));
 	            sp.setLhl_danhmuc(rs.getString("lhl_danhmuc"));
@@ -57,8 +57,8 @@ public class SanPhamDao {
     }
 
     // Lấy sản phẩm theo ID
-    public SanPham getSanPhamById(int id) {
+    public LHLSanPham getSanPhamById(int id) {
         String sql = "SELECT * FROM lhl_sanpham WHERE lhl_masp=?";
-        return template.queryForObject(sql, new Object[] { id }, new BeanPropertyRowMapper<>(SanPham.class));
+        return template.queryForObject(sql, new Object[] { id }, new BeanPropertyRowMapper<>(LHLSanPham.class));
     }
 }

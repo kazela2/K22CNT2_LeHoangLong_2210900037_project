@@ -1,7 +1,7 @@
 package com.springmvc.beans;
 
 
-public class SanPham {
+public class LHLSanPham {
 	private int lhl_masp;
 	private String lhl_tensp;
 	private String lhl_danhmuc;
@@ -11,7 +11,7 @@ public class SanPham {
 
 
 
-	public SanPham(int lhl_masp, String lhl_tensp, String lhl_danhmuc, String lhl_mota, int lhl_gia,
+	public LHLSanPham(int lhl_masp, String lhl_tensp, String lhl_danhmuc, String lhl_mota, int lhl_gia,
 			String lhl_hinhanh) {
 		super();
 		this.lhl_masp = lhl_masp;
@@ -21,7 +21,7 @@ public class SanPham {
 		this.lhl_gia = lhl_gia;
 	}
 	
-	public SanPham() {
+	public LHLSanPham() {
 		super();
 	}
 

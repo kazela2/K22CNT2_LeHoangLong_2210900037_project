@@ -10,21 +10,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.springmvc.beans.KhachHang;
-import com.springmvc.dao.KhachHangDao;
+import com.springmvc.beans.LHLKhachHang;
+import com.springmvc.dao.LHLKhachHangDao;
 
 @Controller
-public class KhachHangController {
+public class LHLKhachHangController {
 	
     @Autowired
-    KhachHangDao dao;
+    LHLKhachHangDao dao;
    
     
 
     // Hiển thị danh sách khách hàng
     @RequestMapping("/KhachHang/list")
     public String viewKhachHangList(Model m) {
-        List<KhachHang> list = dao.getAllKhachHang();
+        List<LHLKhachHang> list = dao.getAllKhachHang();
         m.addAttribute("listkh", list);  // Sửa lại tên attribute trong Model cho đúng với JSP
         return "KhachHang/list";  // Trả về view khachhang/list.jsp
     }
@@ -32,13 +32,13 @@ public class KhachHangController {
     // Form thêm khách hàng
     @RequestMapping("/KhachHang/add")
     public String showAddForm(Model m) {
-        m.addAttribute("command", new KhachHang());
+        m.addAttribute("command", new LHLKhachHang());
         return "KhachHang/add";  // Trả về view khachhang/add.jsp
     }
 
     // Lưu khách hàng mới
     @RequestMapping(value = "/KhachHang/save", method = RequestMethod.POST)
-    public String save(@ModelAttribute("kh") KhachHang kh) {
+    public String save(@ModelAttribute("kh") LHLKhachHang kh) {
         dao.save(kh);
         return "redirect:/KhachHang/list";  // Redirect đến danh sách khách hàng
     }
@@ -46,14 +46,14 @@ public class KhachHangController {
     // Form chỉnh sửa khách hàng
     @RequestMapping("/KhachHang/edit/{id}")
     public String edit(@PathVariable int id, Model m) {
-        KhachHang kh = dao.getKhachHangById(id);
+        LHLKhachHang kh = dao.getKhachHangById(id);
         m.addAttribute("command", kh);
         return "KhachHang/edit";  // Trả về view khachhang/edit.jsp
     }
 
     // Lưu chỉnh sửa khách hàng
     @RequestMapping(value = "/KhachHang/editsave", method = RequestMethod.POST)
-    public String editsave(@ModelAttribute("kh") KhachHang kh) {
+    public String editsave(@ModelAttribute("kh") LHLKhachHang kh) {
         dao.update(kh);
         return "redirect:/KhachHang/list";  // Redirect đến danh sách khách hàng
     }

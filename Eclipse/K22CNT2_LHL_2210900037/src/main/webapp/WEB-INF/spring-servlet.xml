@@ -32,10 +32,10 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		<property name="dataSource" ref="db"></property>
 	</bean>
 
-	<bean id="sanphamdao" class="com.springmvc.dao.SanPhamDao">
+	<bean id="sanphamdao" class="com.springmvc.dao.LHLSanPhamDao">
 		<property name="template" ref="jt"></property>
 	</bean>
-	<bean id="khachhangdao" class="com.springmvc.dao.KhachHangDao">
+	<bean id="khachhangdao" class="com.springmvc.dao.LHLKhachHangDao">
 		<property name="template" ref="jt"></property>
 	</bean>
 </beans>

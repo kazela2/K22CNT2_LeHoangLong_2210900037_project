@@ -38,4 +38,10 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<bean id="khachhangdao" class="com.springmvc.dao.LHLKhachHangDao">
 		<property name="template" ref="jt"></property>
 	</bean>
+		<bean id="donhangdao" class="com.springmvc.dao.LHLDonHangDao">
+		<property name="template" ref="jt"></property>
+	</bean>
+			<bean id="nhanviendao" class="com.springmvc.dao.LHLNhanVienDao">
+		<property name="template" ref="jt"></property>
+	</bean>
 </beans>

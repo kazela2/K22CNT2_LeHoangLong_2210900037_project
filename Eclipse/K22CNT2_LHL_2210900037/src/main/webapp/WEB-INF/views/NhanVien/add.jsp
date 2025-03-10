@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-    <title>Thêm Nhân Viên</title>
+    <title>Them Nhan Vien</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,13 +27,20 @@
             width: 400px;
         }
 
-        input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+        input[type="text"], input[type="email"], input[type="tel"], select {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ddd;
             border-radius: 4px;
             box-sizing: border-box;
+        }
+
+        select {
+            background-color: #fff;
+            color: #333;
+            font-size: 16px;
+            cursor: pointer;
         }
 
         input[type="submit"] {
@@ -66,32 +73,25 @@
 <body>
     <div>
         <h2>Them Nhan Vien</h2>
-        <!-- Form để thêm nhân viên -->
+        <!-- Form de them nhan vien -->
         <form action="${pageContext.request.contextPath}/NhanVien/save" method="post">
-            <label for="lhl_hoten">Ho Ten:</label>
-            <input type="text" name="lhl_hoten" value="${command.lhl_hoten}" required /><br />
-
-            <label for="lhl_email">Email:</label>
-            <input type="email" name="lhl_email" value="${command.lhl_email}" required /><br />
-
-            <label for="lhl_sodienthoai">So Dien Thoai:</label>
-            <input type="text" name="lhl_sodienthoai" value="${command.lhl_sodienthoai}" required /><br />
-
-            <label for="lhl_chucvu">Chuc Vu:</label>
+            <!-- Cac truong cua nhan vien -->
+            Ho Ten: <input type="text" name="lhl_hoten" value="${command.lhl_hoten}" required /><br />
+            So Dien Thoai: <input type="tel" name="lhl_sodienthoai" value="${command.lhl_sodienthoai}" required /><br />
+            
+            Chuc Vu: 
             <select name="lhl_chucvu" required>
-                <option value="">Chọn Chức Vụ</option>
-                <option value="Manager" ${command.lhl_chucvu == 'Manager' ? 'selected' : ''}>Quan ly</option>
-                <option value="Developer" ${command.lhl_chucvu == 'Developer' ? 'selected' : ''}>Lap Trinh Vien</option>
-                <option value="Sales" ${command.lhl_chucvu == 'Sales' ? 'selected' : ''}>Nhan Vien Ban Hang</option>
-                <option value="HR" ${command.lhl_chucvu == 'HR' ? 'selected' : ''}>Nhan Vien Kho Hang</option>
+                <option value="Telesales">Nhan vien Telesales</option>
+                <option value="Kho">Nhan vien Kho</option>
+                <option value="QuanLy">Quan Ly</option>
             </select><br />
-
+            
             <input type="submit" value="Luu" />
         </form>
 
         <br />
-        <!-- Liên kết quay lại danh sách nhân viên -->
-        <a href="${pageContext.request.contextPath}/NhanVien/list">Quay Lai Danh Sach</a>
+        <!-- Lien ket quay lai danh sach nhan vien -->
+        <a href="${pageContext.request.contextPath}/NhanVien/list">Quay lai danh sach</a>
     </div>
 </body>
 </html>

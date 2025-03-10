@@ -11,10 +11,8 @@ import org.springframework.jdbc.core.RowMapper;
 import com.springmvc.beans.LHLNhanVien;
 
 public class LHLNhanVienDao {
-
     private JdbcTemplate template;
 
-    // Setters và getters cho template (cần thiết cho Spring để tự động inject JdbcTemplate)
     public void setTemplate(JdbcTemplate template) {
         this.template = template;
     }
@@ -27,11 +25,7 @@ public class LHLNhanVienDao {
 
     // Cập nhật nhân viên
     public int update(LHLNhanVien nv) {
-        String sql = "UPDATE lhl_nhanvien SET "
-                + "lhl_hoten = ?, "
-                + "lhl_sodienthoai = ?, "
-                + "lhl_chucvu = ? "
-                + "WHERE lhl_manv = ?";
+        String sql = "UPDATE lhl_nhanvien SET lhl_hoten = ?, lhl_sodienthoai = ?, lhl_chucvu = ? WHERE lhl_manv = ?";
         return template.update(sql, nv.getLhl_hoten(), nv.getLhl_sodienthoai(), nv.getLhl_chucvu(), nv.getLhl_manv());
     }
 
@@ -58,6 +52,6 @@ public class LHLNhanVienDao {
     // Lấy nhân viên theo ID
     public LHLNhanVien getNhanVienById(int id) {
         String sql = "SELECT * FROM lhl_nhanvien WHERE lhl_manv=?";
-        return template.queryForObject(sql, new Object[] { id }, new BeanPropertyRowMapper<>(LHLNhanVien.class));
+        return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<>(LHLNhanVien.class));
     }
 }

@@ -1,7 +1,7 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Chinh Sua Nhan Vien</title>
+    <title>Them Kho Hang</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,20 +27,13 @@
             width: 400px;
         }
 
-        input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+        input[type="text"], input[type="number"], textarea, select {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ddd;
             border-radius: 4px;
             box-sizing: border-box;
-        }
-
-        select {
-            background-color: #fff;
-            color: #333;
-            font-size: 16px;
-            cursor: pointer;
         }
 
         input[type="submit"] {
@@ -72,24 +65,25 @@
 </head>
 <body>
     <div>
-        <h2>Chinh Sua Nhan Vien</h2>
-        <form action="${pageContext.request.contextPath}/NhanVien/editsave" method="post">
-            <input type="hidden" name="lhl_manv" value="${command.lhl_manv}" />
-            Ho Ten: <input type="text" name="lhl_hoten" value="${command.lhl_hoten}" required /><br />
-            So Dien Thoai: <input type="tel" name="lhl_sodienthoai" value="${command.lhl_sodienthoai}" required /><br />
-            
-            Chuc Vu: 
-            <select name="lhl_chucvu" required>
-                <option value="Nhan Vien Telesales" ${command.lhl_chucvu == 'Telesales' ? 'selected' : ''}>Nhan vien Telesales</option>
-                <option value="Nhan Vien Kho" ${command.lhl_chucvu == 'Kho' ? 'selected' : ''}>Nhan vien Kho</option>
-                <option value="Quan Ly" ${command.lhl_chucvu == 'QuanLy' ? 'selected' : ''}>Quan ly</option>
-            </select><br />
-            
-            <input type="submit" value="Cap Nhat" />
-        </form>
+        <h2>Them Kho Hang Moi</h2>
+        <!-- Form để thêm kho hàng -->
+        <form action="${pageContext.request.contextPath}/KhoHang/save" method="post">
+            <!-- Các trường của kho hàng -->
+            Ma San Pham: <select name="lhl_masp" required>
+                <option value="" disabled selected>Chon Ma San Pham</option>
+                <c:forEach var="sanPham" items="${sanPhams}">
+                    <option value="${sanPham.lhl_masp}">${sanPham.lhl_tensp}</option>
+                </c:forEach>
+            </select><br/>
+            So Luong Ton: <input type="number" name="lhl_soluongton" required/><br/>
+            Ngay Nhap: <input type="text" name="lhl_ngaynhap" required/><br/>
 
-        <br />
-        <a href="${pageContext.request.contextPath}/NhanVien/list">Quay lai</a>
+            <input type="submit" value="Luu"/>
+        </form>
+        
+        <br/>
+        <!-- Liên kết quay lại danh sách kho hàng -->
+        <a href="${pageContext.request.contextPath}/KhoHang/list">Quay lai danh sach</a>
     </div>
 </body>
 </html>

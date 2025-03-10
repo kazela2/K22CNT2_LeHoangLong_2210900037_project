@@ -23,15 +23,15 @@ public class LHLNhanVienController {
     @RequestMapping("/NhanVien/list")
     public String viewNhanVienList(Model m) {
         List<LHLNhanVien> list = dao.getAllNhanVien();
-        m.addAttribute("listnv", list);
-        return "NhanVien/list"; // Trả về view nhanvien/list.jsp
+        m.addAttribute("list", list);
+        return "NhanVien/list";
     }
 
     // Form thêm nhân viên
     @RequestMapping("/NhanVien/add")
     public String showAddForm(Model m) {
         m.addAttribute("command", new LHLNhanVien());
-        return "NhanVien/add"; // Trả về view nhanvien/add.jsp
+        return "NhanVien/add"; // Trả về view NhanVien/add.jsp
     }
 
     // Lưu nhân viên mới
@@ -46,7 +46,7 @@ public class LHLNhanVienController {
     public String edit(@PathVariable int id, Model m) {
         LHLNhanVien nv = dao.getNhanVienById(id);
         m.addAttribute("command", nv);
-        return "NhanVien/edit"; // Trả về view nhanvien/edit.jsp
+        return "NhanVien/edit"; // Trả về view NhanVien/edit.jsp
     }
 
     // Lưu chỉnh sửa nhân viên
@@ -57,7 +57,7 @@ public class LHLNhanVienController {
     }
 
     // Xóa nhân viên
-    @RequestMapping("/NhanVien/delete/{id}")
+    @RequestMapping("/NhanVien/delete/{id}") 
     public String delete(@PathVariable int id) {
         dao.delete(id);
         return "redirect:/NhanVien/list"; // Redirect đến danh sách nhân viên

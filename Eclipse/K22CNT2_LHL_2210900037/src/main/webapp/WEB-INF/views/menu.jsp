@@ -122,10 +122,10 @@
             <li><a href="${pageContext.request.contextPath}/">Trang Chu</a></li>
             <li><a href="${pageContext.request.contextPath}/SanPham/list">Quan Ly San Pham</a></li>
             <li><a href="${pageContext.request.contextPath}/KhachHang/list">Quan Ly Khach Hang</a></li>
-            <li><a href="${pageContext.request.contextPath}/DonHang/list">Don Hang</a></li>
-            <li><a href="${pageContext.request.contextPath}/NhanVien/list">Nhan Vien</a></li>
-            <li><a href="${pageContext.request.contextPath}/">Gio Hang</a></li>
-            <li><a href="${pageContext.request.contextPath}/">Gio Hang</a></li>
+            <li><a href="${pageContext.request.contextPath}/NhanVien/list">Quan Ly Nhan Vien</a></li>
+            <li><a href="${pageContext.request.contextPath}/KhoHang/list">Kho Hang</a></li>
+            <li><a href="${pageContext.request.contextPath}/BaoHanh/list">Thong tin Bao Hanh</a></li>
+            <li><a href="${pageContext.request.contextPath}/">Danh Gia</a></li>
         </ul>
     </div>
     <div class="footer">

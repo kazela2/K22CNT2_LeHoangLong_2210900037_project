@@ -1,9 +1,13 @@
 eclipse.preferences.version=1
-encoding//src/main/webapp/WEB-INF/views/DonHang/add.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/DonHang/edit.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/BaoHanh/add.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/BaoHanh/edit.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/BaoHanh/list.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/KhachHang/add.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/KhachHang/edit.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/KhachHang/list.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/KhoHang/add.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/KhoHang/edit.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/KhoHang/list.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/NhanVien/add.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/NhanVien/edit.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/NhanVien/list.jsp=UTF-8

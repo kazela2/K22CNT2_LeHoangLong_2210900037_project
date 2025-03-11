@@ -125,7 +125,7 @@
             <li><a href="${pageContext.request.contextPath}/NhanVien/list">Quan Ly Nhan Vien</a></li>
             <li><a href="${pageContext.request.contextPath}/KhoHang/list">Kho Hang</a></li>
             <li><a href="${pageContext.request.contextPath}/BaoHanh/list">Thong tin Bao Hanh</a></li>
-            <li><a href="${pageContext.request.contextPath}/">Danh Gia</a></li>
+            <li><a href="${pageContext.request.contextPath}/DanhGia/list">Danh Gia</a></li>
         </ul>
     </div>
     <div class="footer">

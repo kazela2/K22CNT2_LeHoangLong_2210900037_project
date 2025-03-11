@@ -2,6 +2,7 @@ eclipse.preferences.version=1
 encoding//src/main/webapp/WEB-INF/views/BaoHanh/add.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/BaoHanh/edit.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/BaoHanh/list.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/DanhGia/add.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/KhachHang/add.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/KhachHang/edit.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/KhachHang/list.jsp=UTF-8

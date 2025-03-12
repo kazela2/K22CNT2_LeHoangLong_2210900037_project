@@ -1,135 +1,233 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
-    <title>Quan Ly Nhan Su</title>
-    <style>
-        /* Căn chỉnh cho toàn bộ trang */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-size: cover; /* Làm hình nền bao phủ toàn bộ màn hình */
-            background-position: center;
-            background-attachment: fixed; /* Hình nền cố định khi cuộn */
-        }
+<title>Hệ Thống</title>
+<style>
+/* Căn chỉnh cho toàn bộ trang */
+body {
+    font-family: sans-serif;
+    background-color: #f3f4f6;
+    margin: 0;
+    padding: 0;
+}
 
-        /* Cải tiến thanh menu */
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            background-color: rgba(51, 51, 51, 0.8); /* Thanh menu mờ đi để dễ nhìn */
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Bóng đổ cho thanh menu */
-            padding: 10px 0; /* Thêm khoảng cách giữa các mục */
-        }
+/* Cải tiến thanh menu */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(51, 51, 51, 0.8); /* Thanh menu mờ đi để dễ nhìn */
+    display: block; /* Thay đổi từ flex sang block để li thành cột */
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Bóng đổ cho thanh menu */
+    padding: 10px 0;
+    text-align: left; /* Căn trái cho danh sách */
+}
 
-        li {
-            float: left;
-            margin: 0 15px; /* Thêm khoảng cách giữa các mục */
-        }
+li {
+    margin: 10px 0; /* Thêm khoảng cách giữa các mục */
+}
 
-        li a {
-            display: block;
-            color: black;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-size: 16px;
-            border-radius: 10px;
-            transition: all 0.3s ease; /* Thêm hiệu ứng hover mượt mà */
-        }
+li a {
+    display: block;
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 10px;
+    transition: all 0.3s ease; /* Thêm hiệu ứng hover mượt mà */
+    margin-left: 20px; /* Lùi vào bên trái */
+}
 
-        li a:hover {
-            background-color: #111;
-            transform: scale(1.1); /* Phóng to khi hover */
-        }
+li a:hover {
+    background-color: #111;
+    transform: scale(1.1); /* Phóng to khi hover */
+}
 
-        /* Cải thiện giao diện chính */
-        .content {
-            background-color: rgba(255, 255, 255, 0.9); /* Màu nền mờ */
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 1200px;
-            margin: 20px;
-            text-align: center;
-            font-size: 18px;
-            color: #333;
-            border: 2px solid #ddd; /* Thêm đường viền cho giao diện */
-        }
+/* Cải thiện giao diện chính */
+.intro-content {
+    margin: 40px auto; /* Đặt margin tự động để căn giữa */
+    text-align: center; /* Căn giữa tiêu đề và mô tả */
+    width: 80%;
+    max-width: 1200px; /* Giới hạn chiều rộng */
+}
 
-        h1 {
-            font-size: 36px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
+h1 {
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
 
-        p {
-            margin-bottom: 20px;
-            font-size: 18px;
-            line-height: 1.6;
-        }
+p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+}
 
-        .footer {
-            text-align: center;
-            font-size: 14px;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+/* Cải thiện giao diện danh sách (ul, li) */
+.list-content {
+    margin: 40px auto;
+    width: 80%;
+    max-width: 1200px;
+}
 
-        .footer p {
-            margin: 0;
-        }
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: grid; /* Sử dụng grid để chia thành 3 cột */
+    grid-template-columns: repeat(3, 1fr); /* Chia thành 3 cột */
+    gap: 20px; /* Khoảng cách giữa các cột */
+}
 
-        .content a {
-            display: inline-block;
-            margin-top: 20px;
-            color: black;
-            font-weight: bold;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            background-color: #3498db;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+li {
+    background-color: #ffffff; /* Màu nền cho mỗi mục */
+    border-radius: 10px; /* Bo tròn góc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bóng đổ nhẹ */
+    transition: all 0.3s ease; /* Thêm hiệu ứng hover */
+}
 
-        .content a:hover {
-            background-color: #2980b9;
-            transform: scale(1.05);
-        }
+li a {
+    display: block;
+    padding: 15px 25px; /* Tăng khoảng cách để dễ đọc */
+    text-decoration: none;
+    color: #333; /* Màu chữ tối */
+    font-size: 18px;
+    font-weight: 500; /* Định dạng chữ đậm nhẹ */
+    border-radius: 10px;
+    text-align: center; /* Căn giữa chữ */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
-    </style>
+li a:hover {
+    background-color: #3498db; /* Màu nền khi hover */
+    color: white; /* Đổi màu chữ khi hover */
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+}
+
+li:hover {
+    transform: translateY(-5px); /* Di chuyển nhẹ khi hover */
+}
+
+/* Điều chỉnh cho các màn hình nhỏ */
+@media (max-width: 768px) {
+    ul {
+        grid-template-columns: repeat(2, 1fr); /* Chia thành 2 cột trên màn hình nhỏ */
+    }
+}
+
+@media (max-width: 480px) {
+    ul {
+        grid-template-columns: 1fr; /* Chia thành 1 cột trên các màn hình rất nhỏ */
+    }
+}
+/* Cải tiến footer */
+.footer {
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* Cải tiến button */
+.content a {
+    display: inline-block;
+    margin-top: 20px;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: #3498db;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.content a:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* Cải thiện giao diện phần header */
+header {
+    background-color: white;
+    border-bottom: 1px solid #d1d5db;
+    padding: 16px 0; /* Thêm padding cho phần header */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Căn giữa nội dung */
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center; /* Căn giữa các link trong thanh menu */
+    gap: 20px; /* Tạo khoảng cách giữa các link */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 700; /* Tăng độ đậm của chữ */
+    font-size: 16px; /* Tăng kích thước chữ một chút */
+    padding: 10px 20px; /* Thêm khoảng cách xung quanh chữ */
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out; /* Hiệu ứng mượt khi hover */
+}
+
+
+.nav-links a:hover {
+    color: #10b981; /* Thay đổi màu chữ khi hover */
+    text-decoration: underline; /* Thêm gạch dưới khi hover */
+    transform: scale(1.1); /* Phóng to một chút khi hover */
+}
+
+.nav-links a:active {
+    color: #059669; /* Thay đổi màu khi nhấn */
+}
+
+</style>
 </head>
 <body>
-    <div class="content">
-        <h1>Chao mung den voi he thong quan ly nhan su</h1>
-        <p>He thong giup ban quan ly cac thong tin va san pham , khach hang va cac don hang de dang.</p>
+    <header class="header">
+        <div class="container flex justify-center items-center">
+            <div class="nav-links flex gap-8">
+                <a href="index.jsp">Trang chủ</a>
+                <a href="menu">Quản Lý Hệ Thống</a>
+                <a href="gioithieu">Giới Thiệu</a>
+                <a href="dichvu">Dịch vụ</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Div chứa tiêu đề -->
+    <div class="intro-content">
+        <h1>Chào Mừng Đến Với Trang Quản Lý</h1>
+        <p>Hệ Thống Giúp Bạn Quản Lý Các Thông Tin Và Sản Phẩm, Khách Hàng Và Các Thông Tin Bảo Hành, Đánh Giá.</p>
+    </div>
+
+    <!-- Div chứa danh sách -->
+    <div class="list-content">
         <ul>
-            <li><a href="${pageContext.request.contextPath}/">Trang Chu</a></li>
-            <li><a href="${pageContext.request.contextPath}/SanPham/list">Quan Ly San Pham</a></li>
-            <li><a href="${pageContext.request.contextPath}/KhachHang/list">Quan Ly Khach Hang</a></li>
-            <li><a href="${pageContext.request.contextPath}/NhanVien/list">Quan Ly Nhan Vien</a></li>
-            <li><a href="${pageContext.request.contextPath}/KhoHang/list">Kho Hang</a></li>
-            <li><a href="${pageContext.request.contextPath}/BaoHanh/list">Thong tin Bao Hanh</a></li>
-            <li><a href="${pageContext.request.contextPath}/DanhGia/list">Danh Gia</a></li>
+            <li><a href="${pageContext.request.contextPath}/SanPham/list">Sản Phẩm</a></li>
+            <li><a href="${pageContext.request.contextPath}/KhachHang/list">Khách Hàng</a></li>
+            <li><a href="${pageContext.request.contextPath}/NhanVien/list">Nhân Viên</a></li>
+            <li><a href="${pageContext.request.contextPath}/KhoHang/list">Kho Hàng</a></li>
+            <li><a href="${pageContext.request.contextPath}/BaoHanh/list">Thông Tin Bảo Hành</a></li>
+            <li><a href="${pageContext.request.contextPath}/DanhGia/list">Đánh Giá</a></li>
         </ul>
     </div>
+
     <div class="footer">
-        <p>&copy; 2025 Quan ly nhan su. Tat ca quyen loi duoc bao luu.</p>
+        <p>&copy; 2025 Quản Lý Kinh Doanh, Tất Cả Quyền Lợi Được Bảo Lưu</p>
     </div>
 </body>
+
 </html>

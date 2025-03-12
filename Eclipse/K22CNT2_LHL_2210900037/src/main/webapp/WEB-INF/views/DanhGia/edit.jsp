@@ -1,7 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Chinh Sua Danh Gia</title>
+    <title>Chỉnh Sửa Đánh Giá</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -65,12 +66,12 @@
 </head>
 <body>
     <div>
-        <h2>Chinh Sua Danh Gia</h2>
+        <h2>Chỉnh Sửa Đánh Giá</h2>
 
         <form action="${pageContext.request.contextPath}/DanhGia/editsave" method="post">
             <input type="hidden" name="lhl_madanhgia" value="${command.lhl_madanhgia}"/>
 
-            <label>Ma San Pham:</label>
+            <label>Tên Sản Phẩm:</label>
             <select name="lhl_masp" required>
                 <c:forEach var="sanPham" items="${sanPhams}">
                     <option value="${sanPham.lhl_masp}" ${command.lhl_masp == sanPham.lhl_masp ? 'selected' : ''}>
@@ -79,9 +80,9 @@
                 </c:forEach>
             </select>
             
-            <label>Ma Khach Hang:</label>
+            <label>Tên Khách Hàng:</label>
             <select name="lhl_makh" required>
-                <option value="" disabled selected>Chon Ma Khach Hang</option>
+                <option value="" disabled selected>Chọn Mã Khách Hàng</option>
                 <c:forEach var="khachHang" items="${khachHangs}">
                     <option value="${khachHang.lhl_makh}" ${command.lhl_makh == khachHang.lhl_makh ? 'selected' : ''}>
                         ${khachHang.lhl_hoten}
@@ -89,21 +90,21 @@
                 </c:forEach>
             </select>
             
-            <label>Danh Gia:</label>
+            <label>Đánh Giá:</label>
             <select name="lhl_danhgia" required>
                 <c:forEach var="i" begin="1" end="5">
                     <option value="${i}" ${command.lhl_danhgia == i ? 'selected' : ''}>${i} Sao</option>
                 </c:forEach>
             </select>
             
-            <label>Nhan Xet:</label>
+            <label>Nhận Xét:</label>
             <input type="text" name="lhl_nhanxet" value="${command.lhl_nhanxet}" required />
             
-            <input type="submit" value="Cap Nhat"/>
+            <input type="submit" value="Cập Nhật"/>
         </form>
         
         <br/>
-        <a href="${pageContext.request.contextPath}/DanhGia/list">Quay lai danh sach</a>
+        <a href="${pageContext.request.contextPath}/DanhGia/list">Quay Lại Danh Sách</a>
     </div>
 </body>
 </html>

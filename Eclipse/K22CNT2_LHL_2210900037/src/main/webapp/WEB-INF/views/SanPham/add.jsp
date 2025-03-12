@@ -1,7 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Them San Pham</title>
+    <title>Thêm Sản Phẩm</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -65,21 +66,21 @@
 </head>
 <body>
     <div>
-        <h2>Them San Pham</h2>
+        <h2>Thêm Sản Phẩm</h2>
         <!-- Form để thêm sản phẩm -->
         <form action="${pageContext.request.contextPath}/SanPham/save" method="post">
             <!-- Các trường của sản phẩm -->
-            Ten san pham: <input type="text" name="lhl_tensp" value="${command.lhl_tensp}" required/><br/>
-            Mo Ta: <textarea name="lhl_mota">${command.lhl_mota}</textarea><br/>
-            Danh Muc: <input type="text" name="lhl_danhmuc" value="${command.lhl_danhmuc}" required/><br/>
-            Gia: <input type="number" name="lhl_gia" value="${command.lhl_gia}" required/><br/>
+            Tên Sản Phẩm: <input type="text" name="lhl_tensp" value="${command.lhl_tensp}" required/><br/>
+            Mô Tả: <textarea name="lhl_mota">${command.lhl_mota}</textarea><br/>
+            Danh Mục: <input type="text" name="lhl_danhmuc" value="${command.lhl_danhmuc}" required/><br/>
+            Giá: <input type="number" name="lhl_gia" value="${command.lhl_gia}" required/><br/>
             
-            <input type="submit" value="Luu"/>
+            <input type="submit" value="Lưu"/>
         </form>
         
         <br/>
         <!-- Liên kết quay lại danh sách sản phẩm -->
-        <a href="${pageContext.request.contextPath}/SanPham/list">Quay lai danh sach</a>
+        <a href="${pageContext.request.contextPath}/SanPham/list">Quay lại danh sách</a>
     </div>
 </body>
 </html>

@@ -1,25 +1,96 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Danh Sach Kho Hang</title>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Kho Hàng</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: white;
         }
         
         h1 {
-            text-align: center;
+            font-size: 30px;
+            margin-top: 20px;
             color: #333;
         }
         
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            width: 300px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-card h3 {
+            font-size: 20px;
+            margin: 10px 0;
+            color: #2c3e50;
+        }
+
+        .price {
+            color: red;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-edit {
+            background-color: #f39c12;
+            color: white;
+            border: 1px solid #f39c12;
+        }
+
+        .btn-edit:hover {
+            background-color: #e67e22;
+        }
+
+        .btn-delete {
+            background-color: #e74c3c;
+            color: white;
+            border: 1px solid #e74c3c;
+        }
+
+        .btn-delete:hover {
+            background-color: #c0392b;
+        }
         table {
             border-collapse: collapse;
             margin: 20px 0;
@@ -27,69 +98,39 @@
             background-color: white;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
-        
+
         th, td {
             border: 2px solid #ddd;
             padding: 8px;
             text-align: center;
         }
-        
+
         th {
-            background-color: #007BFF;
-            color: white;
-        }
-        
-        a {
-            text-decoration: none;
-            color: #007BFF;
-            margin: 10px;
-            display: inline-block;
-            padding: 8px 12px;
-            border: 1px solid #007BFF;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-        
-        a:hover {
             background-color: #007BFF;
             color: white;
         }
     </style>
 </head>
 <body>
-    <h1>Danh Sach Kho Hang</h1>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Ten San Pham</th>
-            <th>So Luong Ton</th>
-            <th>Ngay Nhap</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
+    <h1>Danh Sách Kho Hàng</h1>
+    <div class="product-container">
         <c:forEach var="khang" items="${list}">
-            <tr>
-                <td>${khang.lhl_makho}</td>
-                <td>
-				<c:forEach var="sanPham" items="${sanPhams}">
-						<c:if test="${sanPham.lhl_masp == khang.lhl_masp}">
-            					${sanPham.lhl_tensp}
-        				</c:if>
-					</c:forEach>
-				</td> 
-                <td>${khang.lhl_soluongton}</td>
-                <td>${khang.lhl_ngaynhap}</td>
-                <!-- Sửa lại link edit và delete -->
-                <td><a href="${pageContext.request.contextPath}/KhoHang/edit/${khang.lhl_makho}">Edit</a></td>
-                <td><a href="${pageContext.request.contextPath}/KhoHang/delete/${khang.lhl_makho}"
-                    onclick="return confirm('Ban co chac muon xoa khong?')">Delete</a></td>
-            </tr>
+            <div class="product-card">
+                <h3> 
+                    <c:forEach var="sanPham" items="${sanPhams}">
+                        <c:if test="${sanPham.lhl_masp == khang.lhl_masp}">
+                            ${sanPham.lhl_tensp}
+                        </c:if>
+                    </c:forEach>
+                </h3>
+                <p><strong>Số Lượng Tồn:</strong> ${khang.lhl_soluongton}</p>
+                <p><strong>Ngày Nhập:</strong> ${khang.lhl_ngaynhap}</p>
+                <a href="${pageContext.request.contextPath}/KhoHang/edit/${khang.lhl_makho}" class="btn btn-edit">Edit</a>
+                <a href="${pageContext.request.contextPath}/KhoHang/delete/${khang.lhl_makho}" class="btn btn-delete" onclick="return confirm('Bạn có chắc muốn xóa không?')">Delete</a>
+            </div>
         </c:forEach>
-    </table>
-    <br />
-    <!-- Sửa lại đường dẫn quay lại -->
-    <a href="${pageContext.request.contextPath}/menu">Quay Lai</a>
-    <!-- Sửa lại đường dẫn thêm mới kho hàng -->
-    <a href="${pageContext.request.contextPath}/KhoHang/add">Them Moi</a>
+    </div>
+    <a href="${pageContext.request.contextPath}/menu" class="btn">Quay lại</a>
+    <a href="${pageContext.request.contextPath}/KhoHang/add" class="btn">Thêm Mới</a>
 </body>
 </html>

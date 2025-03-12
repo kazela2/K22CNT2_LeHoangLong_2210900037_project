@@ -1,7 +1,8 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-<title>Them Danh Gia</title>
+<title>Thêm Đánh Giá</title>
 <style>
 body {
 	font-family: Arial, sans-serif;
@@ -73,43 +74,43 @@ a:hover {
 </head>
 <body>
 	<div>
-		<h2>Them Danh Gia</h2>
+		<h2>Thêm Đánh Giá</h2>
 
 		<form action="${pageContext.request.contextPath}/DanhGia/save"
 			method="post">
-			<!-- Ma San Pham -->
-			Ma San Pham: <select name="lhl_masp" required>
-				<option value="" disabled selected>Chon Ma San Pham</option>
+			<!-- Mã Sản Phẩm -->
+			Tên Sản Phẩm: <select name="lhl_masp" required>
+				<option value="" disabled selected>Chọn Sản Phẩm</option>
 				<c:forEach var="sanPham" items="${sanPhams}">
 					<option value="${sanPham.lhl_masp}">${sanPham.lhl_tensp}</option>
 				</c:forEach>
 			</select><br /> 
 			
-			Ma Khach Hang: 
+			Tên Khách Hàng: 
 			<select name="lhl_makh" required>
-				<option value="" disabled selected>Chon Ma Khach Hang</option>
+				<option value="" disabled selected>Chọn Khách Hàng</option>
 				<c:forEach var="khachHang" items="${khachHangs}">
 					<option value="${khachHang.lhl_makh}">${khachHang.lhl_hoten}</option>
 				</c:forEach>
 			</select> 
 			
-			Danh Gia: <select name="lhl_danhgia" required>
+			Đánh Giá: <select name="lhl_danhgia" required>
 				<option value="1">1 Sao</option>
 				<option value="2">2 Sao</option>
 				<option value="3">3 Sao</option>
 				<option value="4">4 Sao</option>
 				<option value="5">5 Sao</option>
 			</select><br /> 
-			Nhan Xet: <input type="text" name="lhl_nhanxet"
+			Nhận Xét: <input type="text" name="lhl_nhanxet"
 				value="${command.lhl_nhanxet}" required /><br /> 
 				
-				<input type="submit" value="Luu" />
+				<input type="submit" value="Lưu" />
 		</form>
 
 		<br />
-		<!-- Quay lai danh sach bao hanh -->
-		<a href="${pageContext.request.contextPath}/DanhGia/list">Quay lai
-			danh sach</a>
+		<!-- Quay lại danh sách bảo hành -->
+		<a href="${pageContext.request.contextPath}/DanhGia/list">Quay lại
+			danh sách</a>
 	</div>
 </body>
 </html>

@@ -66,6 +66,18 @@
 	    // Ánh xạ đến trang menu
 	    @RequestMapping("/menu")
 	    public String showMenu() {
-	        return "menu"; // Trả về view menu.jsp
+	        return "menu"; 
 	    }
-	}
+	    @RequestMapping("/gioithieu")
+	    public String showGioiThieu() {
+	        return "gioithieu"; // Trả về view gioithieu.jsp
+	    }
+	    
+	    @RequestMapping("/dichvu")
+	    public String showDichVu() {
+	    	return "dichvu";
+	    }
+	    
+	    
+}
+	

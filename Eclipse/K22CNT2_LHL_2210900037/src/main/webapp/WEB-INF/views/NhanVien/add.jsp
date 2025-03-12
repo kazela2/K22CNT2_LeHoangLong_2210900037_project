@@ -1,7 +1,8 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Them Nhan Vien</title>
+    <title>Thêm Nhân Viên</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -72,26 +73,26 @@
 </head>
 <body>
     <div>
-        <h2>Them Nhan Vien</h2>
-        <!-- Form de them nhan vien -->
+        <h2>Thêm Nhân Viên</h2>
+        <!-- Form để thêm nhân viên -->
         <form action="${pageContext.request.contextPath}/NhanVien/save" method="post">
-            <!-- Cac truong cua nhan vien -->
-            Ho Ten: <input type="text" name="lhl_hoten" value="${command.lhl_hoten}" required /><br />
-            So Dien Thoai: <input type="tel" name="lhl_sodienthoai" value="${command.lhl_sodienthoai}" required /><br />
+            <!-- Các trường của nhân viên -->
+            Họ Tên: <input type="text" name="lhl_hoten" value="${command.lhl_hoten}" required /><br />
+            Số Điện Thoại: <input type="tel" name="lhl_sodienthoai" value="${command.lhl_sodienthoai}" required /><br />
             
-            Chuc Vu: 
+            Chức Vụ: 
             <select name="lhl_chucvu" required>
-                <option value="Telesales">Nhan vien Telesales</option>
-                <option value="Kho">Nhan vien Kho</option>
-                <option value="QuanLy">Quan Ly</option>
+                <option value="Telesales">Nhân viên Telesales</option>
+                <option value="Kho">Nhân viên Kho</option>
+                <option value="QuanLy">Quản Lý</option>
             </select><br />
             
-            <input type="submit" value="Luu" />
+            <input type="submit" value="Lưu" />
         </form>
 
         <br />
-        <!-- Lien ket quay lai danh sach nhan vien -->
-        <a href="${pageContext.request.contextPath}/NhanVien/list">Quay lai danh sach</a>
+        <!-- Liên kết quay lại danh sách nhân viên -->
+        <a href="${pageContext.request.contextPath}/NhanVien/list">Quay lại danh sách</a>
     </div>
 </body>
 </html>

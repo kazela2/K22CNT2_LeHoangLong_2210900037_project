@@ -1,4 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body {
 	font-family: Arial, sans-serif;
@@ -52,35 +59,38 @@ a:hover {
 	color: white;
 }
 </style>
+</head>
+<body>
 
-<h1>Danh Sach Khach Hang</h1>
-<table border="1">
-	<tr>
-		<th>ID</th>
-		<th>Ten Khach Hang</th>
-		<th>Email</th>
-		<th>So Dien Thoai</th>
-		<th>Edit</th>
-		<th>Delete</th>
-	</tr>
-	<c:forEach var="khachhang" items="${listkh}">
+	<h1>Danh Sách Khách Hàng</h1>
+	<table border="1">
 		<tr>
-			<td>${khachhang.lhl_makh}</td>
-			<td>${khachhang.lhl_hoten}</td>
-			<td>${khachhang.lhl_email}</td>
-			<td>${khachhang.lhl_sodienthoai}</td>
-			<td><a
-				href="${pageContext.request.contextPath}/KhachHang/edit/${khachhang.lhl_makh}">Edit</a>
-				</td>
-			<td><a
-				href="${pageContext.request.contextPath}/KhachHang/delete/${khachhang.lhl_makh}">Delete</a>
-			</td>
+			<th>Tên Khách Hàng</th>
+			<th>Email</th>
+			<th>Số Điện Thoại</th>
+			<th>Sửa</th>
+			<th>Xóa</th>
 		</tr>
-	</c:forEach>
+		<c:forEach var="khachhang" items="${listkh}">
+			<tr>
+				<td>${khachhang.lhl_hoten}</td>
+				<td>${khachhang.lhl_email}</td>
+				<td>${khachhang.lhl_sodienthoai}</td>
+				<td><a
+					href="${pageContext.request.contextPath}/KhachHang/edit/${khachhang.lhl_makh}">Sửa</a>
+				</td>
+				<td><a
+					href="${pageContext.request.contextPath}/KhachHang/delete/${khachhang.lhl_makh}">Xóa</a>
+				</td>
+			</tr>
+		</c:forEach>
 
-</table>
-<br />
-<!-- Sửa lại đường dẫn quay lại -->
-<a href="${pageContext.request.contextPath}/menu">Quay Lai</a>
-<!-- Sửa lại đường dẫn thêm mới khách hàng -->
-<a href="${pageContext.request.contextPath}/KhachHang/add">Them Moi</a>
+	</table>
+	<br />
+	<!-- Sửa lại đường dẫn quay lại -->
+	<a href="${pageContext.request.contextPath}/menu">Quay Lại</a>
+	<!-- Sửa lại đường dẫn thêm mới khách hàng -->
+	<a href="${pageContext.request.contextPath}/KhachHang/add">Thêm Mới</a>
+
+</body>
+</html>

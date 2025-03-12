@@ -1,7 +1,8 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-<title>Chinh Sua Khach Hang</title>
+<title>Chỉnh Sửa Khách Hàng</title>
 <style>
 body {
 	font-family: Arial, sans-serif;
@@ -65,26 +66,26 @@ a:hover {
 </head>
 <body>
 	<div>
-		<h2>Chinh Sua Khach Hang</h2>
+		<h2>Chỉnh Sửa Khách Hàng</h2>
 		<!-- Form để chỉnh sửa khách hàng -->
 		<form action="${pageContext.request.contextPath}/KhachHang/editsave"
 			method="post">
 			<input type="hidden" name="lhl_makh" value="${command.lhl_makh}" /> <label
-				for="lhl_hoten">Ho Ten:</label> <input type="text" name="lhl_hoten"
+				for="lhl_hoten">Họ Tên:</label> <input type="text" name="lhl_hoten"
 				value="${command.lhl_hoten}" required /><br /> <label
 				for="lhl_email">Email:</label> <input type="email" name="lhl_email"
 				value="${command.lhl_email}" required /><br /> <label
-				for="lhl_sodienthoai">So Dien Thoai:</label> <input type="text"
+				for="lhl_sodienthoai">Số Điện Thoại:</label> <input type="text"
 				name="lhl_sodienthoai" value="${command.lhl_sodienthoai}" required /><br />
 
-			<input type="submit" value="Update" />
+			<input type="submit" value="Cập Nhật" />
 		</form>
 
 
 		<br />
 		<!-- Liên kết quay lại danh sách khách hàng -->
 		<a href="${pageContext.request.contextPath}/KhachHang/list">Quay
-			Lai Danh Sach</a>
+			Lại Danh Sách</a>
 	</div>
 </body>
 </html>

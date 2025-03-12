@@ -1,7 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Them Kho Hang</title>
+    <title>Thêm Kho Hàng Mới</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -65,25 +66,25 @@
 </head>
 <body>
     <div>
-        <h2>Them Kho Hang Moi</h2>
+        <h2>Thêm Kho Hàng Mới</h2>
         <!-- Form để thêm kho hàng -->
         <form action="${pageContext.request.contextPath}/KhoHang/save" method="post">
             <!-- Các trường của kho hàng -->
-            Ma San Pham: <select name="lhl_masp" required>
-                <option value="" disabled selected>Chon Ma San Pham</option>
+            Tên Sản Phẩm: <select name="lhl_masp" required>
+                <option value="" disabled selected>Chọn Sản Phẩm</option>
                 <c:forEach var="sanPham" items="${sanPhams}">
                     <option value="${sanPham.lhl_masp}">${sanPham.lhl_tensp}</option>
                 </c:forEach>
             </select><br/>
-            So Luong Ton: <input type="number" name="lhl_soluongton" required/><br/>
-            Ngay Nhap: <input type="text" name="lhl_ngaynhap" required/><br/>
+            Số Lượng Tồn: <input type="number" name="lhl_soluongton" required/><br/>
+            Ngày Nhập: <input type="text" name="lhl_ngaynhap" required/><br/>
 
-            <input type="submit" value="Luu"/>
+            <input type="submit" value="Lưu"/>
         </form>
         
         <br/>
         <!-- Liên kết quay lại danh sách kho hàng -->
-        <a href="${pageContext.request.contextPath}/KhoHang/list">Quay lai danh sach</a>
+        <a href="${pageContext.request.contextPath}/KhoHang/list">Quay lại danh sách</a>
     </div>
 </body>
 </html>

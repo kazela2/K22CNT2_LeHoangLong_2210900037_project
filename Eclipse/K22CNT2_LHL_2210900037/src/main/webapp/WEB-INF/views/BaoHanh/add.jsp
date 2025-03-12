@@ -1,7 +1,8 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Them Bao Hanh</title>
+    <title>Thêm Bảo Hành</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -99,38 +100,35 @@
 </head>
 <body>
     <div>
-        <h2>Them Bao Hanh</h2>
-        <!-- Form de them bao hanh -->
+        <h2>Thêm Bảo Hành</h2>
+        <!-- Form để thêm bảo hành -->
         <form action="${pageContext.request.contextPath}/BaoHanh/save" method="post">
-            <!-- Ma San Pham -->
-            Ten San Pham:
+            <!-- Mã Sản Phẩm -->
+            Tên Sản Phẩm:
             <select name="lhl_masp" required>
-                <option value="" disabled selected>Chon San Pham</option>
+                <option value="" disabled selected>Chọn Sản Phẩm</option>
                 <c:forEach var="sanPham" items="${sanPhams}">
                     <option value="${sanPham.lhl_masp}">${sanPham.lhl_tensp}</option>
                 </c:forEach>
             </select><br/>
 
-
-            Ngay Bat Dau:
+            Ngày Bắt Đầu:
             <input type="text" name="lhl_ngaybatdau" value="${command.lhl_ngaybatdau}" required /><br />
 
-
-            Ngay Ket Thuc:
+            Ngày Kết Thúc:
             <input type="text" name="lhl_ngayketthuc" value="${command.lhl_ngayketthuc}" required /><br />
-            
 
-            Trang Thai:
+            Trạng Thái:
             <select name="lhl_trangthai" required>
-                <option value="BaoHanh">Bao Hanh</option>
-                <option value="HetHan">Het Han Bao Hanh</option>
+                <option value="Bảo Hành">Bảo Hành</option>
+                <option value="Hết Hạn">Hết Hạn Bảo Hành</option>
             </select><br />
-            <input type="submit" value="Luu" />
+            <input type="submit" value="Lưu" />
         </form>
 
         <br />
-        <!-- Quay lai danh sach bao hanh -->
-        <a href="${pageContext.request.contextPath}/BaoHanh/list">Quay lai danh sach</a>
+        <!-- Quay lại danh sách bảo hành -->
+        <a href="${pageContext.request.contextPath}/BaoHanh/list">Quay lại danh sách</a>
     </div>
 </body>
 </html>

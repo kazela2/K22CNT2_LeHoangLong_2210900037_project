@@ -28,6 +28,8 @@ public class LHLBaoHanhController {
     public String viewBaoHanhList(Model model) {
         List<LHLBaoHanh> baoHanhs = baoHanhDao.getAllBaoHanh();
         model.addAttribute("list", baoHanhs);
+        List<LHLSanPham> sanPhams = sanPhamDao.getAllSanPham();  
+        model.addAttribute("sanPhams", sanPhams); 
         return "BaoHanh/list"; // Trả về view BaoHanh/list.jsp
     }
 

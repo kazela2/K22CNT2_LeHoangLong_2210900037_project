@@ -29,6 +29,8 @@ public class LHLKhoHangController {
     public String viewKhoHangList(Model model) {
         List<LHLKhoHang> khoHangs = khoHangDao.getAllKhoHang();
         model.addAttribute("list", khoHangs);
+        List<LHLSanPham> sanPhams = sanPhamDao.getAllSanPham();  
+        model.addAttribute("sanPhams", sanPhams); 
         return "KhoHang/list"; // Trả về view khohang/list.jsp
     }
 

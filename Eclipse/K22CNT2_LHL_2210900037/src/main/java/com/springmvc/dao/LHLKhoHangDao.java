@@ -23,8 +23,8 @@ public class LHLKhoHangDao {
 
     // Cập nhật kho hàng
     public int update(LHLKhoHang khoHang) {
-        String sql = "UPDATE lhl_khohang SET lhl_soluongton = ?, lhl_ngaynhap = ? WHERE lhl_makho = ?";
-        return template.update(sql, khoHang.getLhl_soluongton(), khoHang.getLhl_ngaynhap(), khoHang.getLhl_makho());
+        String sql = "UPDATE lhl_khohang SET lhl_masp = ?, lhl_soluongton = ?, lhl_ngaynhap = ? WHERE lhl_makho = ?";
+        return template.update(sql,khoHang.getLhl_masp(), khoHang.getLhl_soluongton(), khoHang.getLhl_ngaynhap(), khoHang.getLhl_makho());
     }
 
     // Xóa kho hàng

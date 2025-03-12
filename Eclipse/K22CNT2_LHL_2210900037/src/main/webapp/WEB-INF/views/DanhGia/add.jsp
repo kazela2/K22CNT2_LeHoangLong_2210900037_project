@@ -81,26 +81,24 @@ a:hover {
 			Ma San Pham: <select name="lhl_masp" required>
 				<option value="" disabled selected>Chon Ma San Pham</option>
 				<c:forEach var="sanPham" items="${sanPhams}">
-					<option value="${sanPham.lhl_tensp}">${sanPham.lhl_tensp}</option>
+					<option value="${sanPham.lhl_masp}">${sanPham.lhl_tensp}</option>
 				</c:forEach>
 			</select><br /> 
 			
 			Ma Khach Hang: 
-			<input type="text" name="lhl_makh"
-				value="${command.lhl_makh}" required /><br /> 
-<%-- 			<select name="lhl_makh" required>
-				<option value="" disabled selected>Chọn Mã Khách Hàng</option>
+			<select name="lhl_makh" required>
+				<option value="" disabled selected>Chon Ma Khach Hang</option>
 				<c:forEach var="khachHang" items="${khachHangs}">
-					<option value="${khachHang.lhl_makh}">${khachHang.lhl_tenkh}</option>
-				</c:forEach>	
-			</select> --%>
+					<option value="${khachHang.lhl_makh}">${khachHang.lhl_hoten}</option>
+				</c:forEach>
+			</select> 
 			
 			Danh Gia: <select name="lhl_danhgia" required>
-				<option value="1*">1 Sao</option>
-				<option value="2*">2 Sao</option>
-				<option value="3*">3 Sao</option>
-				<option value="4*">4 Sao</option>
-				<option value="5*">5 Sao</option>
+				<option value="1">1 Sao</option>
+				<option value="2">2 Sao</option>
+				<option value="3">3 Sao</option>
+				<option value="4">4 Sao</option>
+				<option value="5">5 Sao</option>
 			</select><br /> 
 			Nhan Xet: <input type="text" name="lhl_nhanxet"
 				value="${command.lhl_nhanxet}" required /><br /> 

@@ -34,6 +34,10 @@ public class LHLDanhGiaController {
     public String viewBaoHanhList(Model model) {
         List<LHLDanhGia> danhGias = danhGiaDao.getAllDanhGia();
         model.addAttribute("list",  danhGias);
+        List<LHLSanPham> sanPhams = sanPhamDao.getAllSanPham();  
+        model.addAttribute("sanPhams", sanPhams); 
+        List<LHLKhachHang> khachHangs = khachHangDao.getAllKhachHang();  
+        model.addAttribute("khachHangs", khachHangs); 
         return "DanhGia/list"; // Trả về view BaoHanh/list.jsp
     }
 

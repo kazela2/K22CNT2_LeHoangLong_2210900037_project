@@ -103,9 +103,9 @@
         <!-- Form de them bao hanh -->
         <form action="${pageContext.request.contextPath}/BaoHanh/save" method="post">
             <!-- Ma San Pham -->
-            Ma San Pham:
+            Ten San Pham:
             <select name="lhl_masp" required>
-                <option value="" disabled selected>Chon Ma San Pham</option>
+                <option value="" disabled selected>Chon San Pham</option>
                 <c:forEach var="sanPham" items="${sanPhams}">
                     <option value="${sanPham.lhl_masp}">${sanPham.lhl_tensp}</option>
                 </c:forEach>

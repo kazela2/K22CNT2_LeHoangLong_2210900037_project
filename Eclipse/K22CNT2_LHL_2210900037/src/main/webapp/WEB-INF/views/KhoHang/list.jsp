@@ -61,7 +61,7 @@
     <table border="1">
         <tr>
             <th>ID</th>
-            <th>Ma San Pham</th>
+            <th>Ten San Pham</th>
             <th>So Luong Ton</th>
             <th>Ngay Nhap</th>
             <th>Edit</th>
@@ -70,7 +70,13 @@
         <c:forEach var="khang" items="${list}">
             <tr>
                 <td>${khang.lhl_makho}</td>
-                <td>${khang.lhl_masp}</td> 
+                <td>
+				<c:forEach var="sanPham" items="${sanPhams}">
+						<c:if test="${sanPham.lhl_masp == khang.lhl_masp}">
+            					${sanPham.lhl_tensp}
+        				</c:if>
+					</c:forEach>
+				</td> 
                 <td>${khang.lhl_soluongton}</td>
                 <td>${khang.lhl_ngaynhap}</td>
                 <!-- Sửa lại link edit và delete -->

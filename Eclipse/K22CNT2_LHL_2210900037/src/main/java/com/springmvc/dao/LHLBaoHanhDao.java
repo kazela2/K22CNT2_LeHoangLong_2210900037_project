@@ -24,8 +24,8 @@ public class LHLBaoHanhDao {
 
     // Cập nhật bảo hành
     public int update(LHLBaoHanh baoHanh) {
-        String sql = "UPDATE lhl_baohanh SET lhl_ngaybatdau = ?, lhl_ngayketthuc = ?, lhl_trangthai = ? WHERE lhl_mabaohanh = ?";
-        return template.update(sql, baoHanh.getLhl_ngaybatdau(), baoHanh.getLhl_ngayketthuc(), baoHanh.getLhl_trangthai(), baoHanh.getLhl_mabaohanh());
+        String sql = "UPDATE lhl_baohanh SET lhl_masp = ?, lhl_ngaybatdau = ?, lhl_ngayketthuc = ?, lhl_trangthai = ? WHERE lhl_mabaohanh = ?";
+        return template.update(sql,baoHanh.getLhl_masp(), baoHanh.getLhl_ngaybatdau(), baoHanh.getLhl_ngayketthuc(), baoHanh.getLhl_trangthai(), baoHanh.getLhl_mabaohanh());
     }
 
     // Xóa bảo hành

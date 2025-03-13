@@ -213,7 +213,7 @@ h6 {
             <a href="/">Trang chủ</a>
             <a href="menu">Quản Lý Hệ Thống</a>
             <a href="gioithieu">Giới Thiệu</a>
-            <a href="dichvu">Dịch vụ</a>
+            <a href="dichvu">Thông Tin Nổi Bật</a>
             
         </div>
     </div>
@@ -280,7 +280,6 @@ h6 {
                    <li>Các loại dây cáp điện, bộ chia điện đảm bảo an toàn cho mọi công trình.</li>
                    <li>Thiết bị đo lường điện, bảo vệ chống quá tải.</li>
                 </ul><p></p>
-                <a href="#" class="button">Xem thêm</a>
             </div>
             
             <div class="card">
@@ -293,7 +292,7 @@ h6 {
                    <li>Bộ lọc nước và các thiết bị xử lý nước sạch cho gia đình và công trình.</li>
                    <li>Phụ kiện ống nước như khớp nối, thích hợp cho nhiều ứng dụng.</li>
                 </ul><p></p>
-                <a href="#" class="button">Xem thêm</a>
+        
             </div>
             
             <div class="card">
@@ -306,8 +305,7 @@ h6 {
                    <li>Hệ thống điều khiển từ xa cho thiết bị điện và nước thông minh.</li>
                    <li>Chốt khóa bảo vệ thiết bị điện, tránh nguy cơ rò rỉ điện.</li>
                 </ul><p></p>
-                <a href="#" class="button">Xem thêm</a>
-            </div>
+             </div>
         </div>
     </main>
 

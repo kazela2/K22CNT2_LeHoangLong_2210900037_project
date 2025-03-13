@@ -269,7 +269,7 @@ footer.footer .footer-links ul li a:hover {
 				<a href="index.jsp">Trang chủ</a> 
 				<a href="menu">Quản Lý Hệ Thống</a> 
 				<a href="gioithieu">Giới Thiệu</a> 
-				<a href="dichvu">Dịch vụ</a> 
+				<a href="dichvu">Thông Tin Nổi Bật</a> 
 			</div>
 		</div>
 	</header>
